@@ -1,7 +1,5 @@
 package hello_world;
 
-import java.util.Iterator;
-
 public class repeticao {
 
 	public static void main(String[] args) {
