@@ -9,23 +9,25 @@ public class Player extends Rectangle{
 	
 	public int spd=4;
 	public boolean rigth,up,down,left;
+	
+	
 
 	public Player (int x,int y) {
 		super(x,y,32,32);
 	}
 	
     public void tick() {
-		if(rigth) {
+		if(rigth && World.isFree(x+spd, y)) {
 			x+=spd;
 		}
-		else if (left) {
+		else if (left && World.isFree(x-spd, y)) {
 			x-=spd;
 		}
 		
-		if(up) {
+		if(up&& World.isFree(spd, y-spd)) {
 			y-=spd;
 		}
-		else if (down) {
+		else if (down && World.isFree(x, y+spd)) {
 			y+=spd;
 		}
 	}

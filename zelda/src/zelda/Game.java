@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 public class Game extends Canvas implements Runnable,KeyListener{
 	
 	public Player player;
+	public World world;
 	
 	@Override
 	public void run() {
@@ -25,7 +26,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 				
 				e.printStackTrace();
 			}
-			System.out.print("rodando \n");
+			System.out.print("running \n");
 		}
 		
 	}
@@ -34,7 +35,8 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		this.addKeyListener(this);
 		this.setPreferredSize(new Dimension(480,480));
 		
-		player = new Player(0, 0);
+		player = new Player(32, 32);
+		world = new World();
 	}
 	
 	public void tick() {
@@ -53,9 +55,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		g.fillRect(0, 0, 480, 480);
 		
 		player.render(g);
-		
-//		g.setColor(Color.red);
-//		g.fillRect(10, 10, 100, 100);
+		world.render(g);
 		bs.show();
 	}
 	
